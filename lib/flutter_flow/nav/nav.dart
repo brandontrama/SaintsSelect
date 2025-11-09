@@ -49,6 +49,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ChatPageWidget.routeName,
           path: ChatPageWidget.routePath,
           builder: (context, params) => ChatPageWidget(),
+        ),
+        FFRoute(
+          name: StartPointWidget.routeName,
+          path: StartPointWidget.routePath,
+          builder: (context, params) => StartPointWidget(),
+        ),
+        FFRoute(
+          name: WhoAreYouWidget.routeName,
+          path: WhoAreYouWidget.routePath,
+          builder: (context, params) => WhoAreYouWidget(),
+        ),
+        FFRoute(
+          name: InterestsWidget.routeName,
+          path: InterestsWidget.routePath,
+          builder: (context, params) => InterestsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

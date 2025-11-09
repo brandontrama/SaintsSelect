@@ -56,6 +56,13 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color customColor1;
+  late Color customColor2;
+  late Color customColor3;
+  late Color customColor4;
+  late Color customColor5;
+  late Color primarySienaGreen;
+
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
   @Deprecated('Use displaySmall instead')
@@ -158,6 +165,13 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color customColor1 = const Color(0xFF4482D8);
+  late Color customColor2 = const Color(0xFFFCC917);
+  late Color customColor3 = const Color(0xFF006B54);
+  late Color customColor4 = const Color(0xFF008AB1);
+  late Color customColor5 = const Color(0xFFB01C2E);
+  late Color primarySienaGreen = const Color(0xFF006B54);
 }
 
 abstract class Typography {
@@ -344,6 +358,13 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color customColor1 = const Color(0xFF4482D8);
+  late Color customColor2 = const Color(0xFFFCC917);
+  late Color customColor3 = const Color(0xFF006B54);
+  late Color customColor4 = const Color(0xFF008AB1);
+  late Color customColor5 = const Color(0xFFB01C2E);
+  late Color primarySienaGreen = const Color(0xFF006B54);
 }
 
 extension TextStyleHelper on TextStyle {

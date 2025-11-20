@@ -6,23 +6,23 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'start_point_model.dart';
-export 'start_point_model.dart';
+import 'profile_setup_model.dart';
+export 'profile_setup_model.dart';
 
 /// Welcome Screen With CTA
-class StartPointWidget extends StatefulWidget {
-  const StartPointWidget({super.key});
+class ProfileSetupWidget extends StatefulWidget {
+  const ProfileSetupWidget({super.key});
 
-  static String routeName = 'StartPoint';
-  static String routePath = '/startPoint';
+  static String routeName = 'ProfileSetup';
+  static String routePath = '/profileSetup';
 
   @override
-  State<StartPointWidget> createState() => _StartPointWidgetState();
+  State<ProfileSetupWidget> createState() => _ProfileSetupWidgetState();
 }
 
-class _StartPointWidgetState extends State<StartPointWidget>
+class _ProfileSetupWidgetState extends State<ProfileSetupWidget>
     with TickerProviderStateMixin {
-  late StartPointModel _model;
+  late ProfileSetupModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -31,7 +31,7 @@ class _StartPointWidgetState extends State<StartPointWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => StartPointModel());
+    _model = createModel(context, () => ProfileSetupModel());
 
     animationsMap.addAll({
       'textOnPageLoadAnimation': AnimationInfo(

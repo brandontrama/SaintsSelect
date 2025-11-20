@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => ProfilePageWidget(),
+      errorBuilder: (context, state) => InterestsWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => ProfilePageWidget(),
+          builder: (context, _) => InterestsWidget(),
         ),
         FFRoute(
           name: ProfilePageWidget.routeName,
@@ -64,6 +64,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: InterestsWidget.routeName,
           path: InterestsWidget.routePath,
           builder: (context, params) => InterestsWidget(),
+        ),
+        FFRoute(
+          name: ProfileSetupWidget.routeName,
+          path: ProfileSetupWidget.routePath,
+          builder: (context, params) => ProfileSetupWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

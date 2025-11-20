@@ -24,6 +24,8 @@ class _WhoAreYouWidgetState extends State<WhoAreYouWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WhoAreYouModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

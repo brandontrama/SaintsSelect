@@ -52,6 +52,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

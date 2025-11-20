@@ -54,6 +54,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -89,11 +91,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         decoration: BoxDecoration(),
@@ -122,6 +126,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               'NEWS',

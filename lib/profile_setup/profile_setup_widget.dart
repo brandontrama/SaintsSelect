@@ -34,7 +34,19 @@ class _ProfileSetupWidgetState extends State<ProfileSetupWidget>
     _model = createModel(context, () => ProfileSetupModel());
 
     animationsMap.addAll({
-      'textOnPageLoadAnimation': AnimationInfo(
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           ShimmerEffect(
@@ -88,27 +100,57 @@ class _ProfileSetupWidgetState extends State<ProfileSetupWidget>
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'WELCOME TO SAINTSSELECT',
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).displayLarge.override(
-                          font: GoogleFonts.oswald(
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .displayLarge
-                                .fontStyle,
-                          ),
-                          color: Color(0xFF006B54),
-                          fontSize: 64.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .fontStyle,
-                          lineHeight: 1.0,
-                        ),
-                  ).animateOnPageLoad(
-                      animationsMap['textOnPageLoadAnimation']!),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'WELCOME TO SAINTS',
+                        textAlign: TextAlign.center,
+                        style:
+                            FlutterFlowTheme.of(context).displayLarge.override(
+                                  font: GoogleFonts.oswald(
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .displayLarge
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFF006B54),
+                                  fontSize: 64.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .displayLarge
+                                      .fontStyle,
+                                  lineHeight: 1.0,
+                                ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
+                      Text(
+                        'SELECT',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context)
+                            .displayLarge
+                            .override(
+                              font: GoogleFonts.oswald(
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displayLarge
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).customColor2,
+                              fontSize: 64.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .displayLarge
+                                  .fontStyle,
+                              lineHeight: 1.0,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation2']!),
+                    ],
+                  ),
                   Text(
                     'IT\'S TIME TO SET UP YOUR PROFILE',
                     textAlign: TextAlign.center,

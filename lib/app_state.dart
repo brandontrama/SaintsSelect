@@ -159,6 +159,44 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList(
         'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
+
+  List<String> _currentPhrase = [
+    'ONE MOMENT WHILE YOUR PROFILE IS BEING CREATED...',
+    '...YOUR ROOMMATE MATCHES ARE ON THE WAY!'
+  ];
+  List<String> get currentPhrase => _currentPhrase;
+  set currentPhrase(List<String> value) {
+    _currentPhrase = value;
+  }
+
+  void addToCurrentPhrase(String value) {
+    currentPhrase.add(value);
+  }
+
+  void removeFromCurrentPhrase(String value) {
+    currentPhrase.remove(value);
+  }
+
+  void removeAtIndexFromCurrentPhrase(int index) {
+    currentPhrase.removeAt(index);
+  }
+
+  void updateCurrentPhraseAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    currentPhrase[index] = updateFn(_currentPhrase[index]);
+  }
+
+  void insertAtIndexInCurrentPhrase(int index, String value) {
+    currentPhrase.insert(index, value);
+  }
+
+  int _currentPhraseIndex = 0;
+  int get currentPhraseIndex => _currentPhraseIndex;
+  set currentPhraseIndex(int value) {
+    _currentPhraseIndex = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

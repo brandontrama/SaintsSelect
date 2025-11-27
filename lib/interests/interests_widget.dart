@@ -229,7 +229,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -315,7 +315,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -401,7 +401,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -493,7 +493,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -579,7 +579,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -665,7 +665,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -757,7 +757,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -843,7 +843,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -929,7 +929,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1021,7 +1021,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1107,7 +1107,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1193,7 +1193,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1285,7 +1285,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1371,7 +1371,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1457,7 +1457,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1549,7 +1549,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1635,7 +1635,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1699,7 +1699,8 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4.0,
-                                      color: Color(0x33000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                       offset: Offset(
                                         0.0,
                                         2.0,
@@ -1789,7 +1790,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1875,7 +1876,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -1961,7 +1962,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2047,7 +2048,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2139,7 +2140,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2225,7 +2226,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2311,7 +2312,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2397,7 +2398,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2489,7 +2490,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2575,7 +2576,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2661,7 +2662,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .secondaryText,
                                         offset: Offset(
                                           0.0,
                                           2.0,
@@ -2725,7 +2726,8 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4.0,
-                                      color: Color(0x33000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                       offset: Offset(
                                         0.0,
                                         2.0,

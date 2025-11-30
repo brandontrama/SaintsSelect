@@ -1,40 +1,50 @@
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'interests_model.dart';
-export 'interests_model.dart';
+import 'essentials_model.dart';
+export 'essentials_model.dart';
 
 /// Activity Selection Menu
-class InterestsWidget extends StatefulWidget {
-  const InterestsWidget({super.key});
+class EssentialsWidget extends StatefulWidget {
+  const EssentialsWidget({super.key});
 
-  static String routeName = 'Interests';
-  static String routePath = '/interests';
+  static String routeName = 'Essentials';
+  static String routePath = '/essentials';
 
   @override
-  State<InterestsWidget> createState() => _InterestsWidgetState();
+  State<EssentialsWidget> createState() => _EssentialsWidgetState();
 }
 
-class _InterestsWidgetState extends State<InterestsWidget> {
-  late InterestsModel _model;
+class _EssentialsWidgetState extends State<EssentialsWidget> {
+  late EssentialsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InterestsModel());
+    _model = createModel(context, () => EssentialsModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.initializeHobbyColors();
     });
+
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+
+    _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -139,7 +149,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/Progress_Bar_(15).png',
+                              'assets/images/Paste_Image_(3).png',
                               width: 302.8,
                               height: 21.5,
                               fit: BoxFit.cover,
@@ -150,7 +160,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                             color: Color(0xFF006B54),
                           ),
                           Text(
-                            'STEP 2: INTERESTS',
+                            'STEP 4: ESSENTIALS',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -169,13 +179,24 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                       .fontStyle,
                                 ),
                           ),
-                          Text(
-                            'SELECT YOUR HOBBIES',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.oswald(
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'ALLERGIES',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 32.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -183,17 +204,536 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'DO YOU HAVE ANY ALLERGIES YOU THINK YOUR ROOMMATE SHOULD KNOW ABOUT',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFFCFC9C4),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  valueOrDefault<double>(
+                                    MediaQuery.sizeOf(context).width * .04,
+                                    0.0,
+                                  ),
+                                  0.0,
+                                  0.0,
+                                  0.0),
+                              child: FlutterFlowRadioButton(
+                                options: FFAppState().allergyChoice.toList(),
+                                onChanged: (val) async {
+                                  safeSetState(() {});
+                                  FFAppState().onTapCount = 0;
+                                  safeSetState(() {});
+                                },
+                                controller:
+                                    _model.radioButtonValueController ??=
+                                        FormFieldController<String>('NO'),
+                                optionHeight: 32.0,
+                                optionWidth:
+                                    MediaQuery.sizeOf(context).width * 0.08,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.oswald(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                buttonPosition: RadioButtonPosition.left,
+                                direction: Axis.horizontal,
+                                radioButtonColor: FlutterFlowTheme.of(context)
+                                    .primarySienaGreen,
+                                inactiveRadioButtonColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                toggleable: false,
+                                horizontalAlignment: WrapAlignment.center,
+                                verticalAlignment: WrapCrossAlignment.start,
+                              ),
+                            ),
+                          ),
+                          if ((FFAppState().onTapCount >= 1) &&
+                              (_model.radioButtonValue == 'YES'))
+                            Container(
+                              width: 300.0,
+                              child: TextFormField(
+                                controller: _model.textController1,
+                                focusNode: _model.textFieldFocusNode1,
+                                autofocus: false,
+                                enabled: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  hintText: 'Allergy',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.oswald(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                enableInteractiveSelection: true,
+                                validator: _model.textController1Validator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          if ((FFAppState().onTapCount >= 2) &&
+                              (_model.radioButtonValue == 'YES'))
+                            Container(
+                              width: 300.0,
+                              child: TextFormField(
+                                controller: _model.textController2,
+                                focusNode: _model.textFieldFocusNode2,
+                                autofocus: false,
+                                enabled: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  hintText: 'Allergy',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.oswald(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                enableInteractiveSelection: true,
+                                validator: _model.textController2Validator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          if ((FFAppState().onTapCount >= 3) &&
+                              (_model.radioButtonValue == 'YES'))
+                            Container(
+                              width: 300.0,
+                              child: TextFormField(
+                                controller: _model.textController3,
+                                focusNode: _model.textFieldFocusNode3,
+                                autofocus: false,
+                                enabled: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  hintText: 'Allergy',
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        font: GoogleFonts.oswald(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  filled: true,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                cursorColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                enableInteractiveSelection: true,
+                                validator: _model.textController3Validator
+                                    .asValidator(context),
+                              ),
+                            ),
+                          if (_model.radioButtonValue == 'YES')
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                FFAppState().onTapCount =
+                                    FFAppState().onTapCount + 1;
+                                safeSetState(() {});
+                              },
+                              child: Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                      spreadRadius: 1.0,
+                                    )
+                                  ],
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Color(0xFF008080),
+                                    width: 3.0,
+                                  ),
+                                ),
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Color(0xFF008080),
+                                    size: 30.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width * 0.33,
+                            child: Divider(
+                              thickness: 3.0,
+                              color: Color(0xFFCFC9C4),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'ITEMS',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 32.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'ITEMS YOU ARE BRINGING TO CAMPUS',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFFCFC9C4),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -205,13 +745,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor1 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor1 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     0,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor1!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor1!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -219,11 +759,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 140.0,
+                                  width: 100.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(0),
                                     boxShadow: [
                                       BoxShadow(
@@ -252,13 +792,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '📸',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Photography',
+                                          'Mini Fridge',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -291,13 +825,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor2 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor2 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     1,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor2!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor2!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -305,11 +839,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 110.0,
+                                  width: 60.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(1),
                                     boxShadow: [
                                       BoxShadow(
@@ -338,13 +872,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎵',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Music',
+                                          'Fan',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -377,13 +905,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor3 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor3 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     2,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor3!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor3!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -391,11 +919,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 115.0,
+                                  width: 120.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(2),
                                     boxShadow: [
                                       BoxShadow(
@@ -424,13 +952,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '📚',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Reading',
+                                          'Microwave',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -457,25 +979,19 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor4 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor4 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     3,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor4!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor4!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -483,11 +999,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 110.0,
+                                  width: 85.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(3),
                                     boxShadow: [
                                       BoxShadow(
@@ -516,13 +1032,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🏋️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Fitness',
+                                          'Toaster',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -549,19 +1059,25 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   ),
                                 ),
                               ),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor5 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor5 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     4,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor5!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor5!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -569,11 +1085,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 110.0,
+                                  width: 60.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(4),
                                     boxShadow: [
                                       BoxShadow(
@@ -602,13 +1118,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '✍️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Writing',
+                                          'TV',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -641,13 +1151,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor6 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor6 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     5,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor6!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor6!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -659,7 +1169,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(5),
                                     boxShadow: [
                                       BoxShadow(
@@ -688,13 +1198,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🏀',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Basketball',
+                                          'Extra Furniture',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -721,25 +1225,19 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.outputColor7 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
+                                  _model.itemsOutputColor7 = await actions
+                                      .changeItemsContainerColorAtIndex(
+                                    FFAppState().itemsColors.toList(),
                                     6,
                                   );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor7!
+                                  FFAppState().itemsColors = _model
+                                      .itemsOutputColor7!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -747,11 +1245,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 135.0,
+                                  width: 90.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .hobbyColors
+                                        .itemsColors
                                         .elementAtOrNull(6),
                                     boxShadow: [
                                       BoxShadow(
@@ -780,891 +1278,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '⛸️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Ice Skating',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor8 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    7,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor8!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 120.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(7),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🍳',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Cooking',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor9 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    8,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor9!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 110.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(8),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🥾',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Hiking',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor10 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    9,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor10!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 115.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(9),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🎮',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Gaming',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor11 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    10,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor11!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 150.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🎸',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Instruments',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor12 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    11,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor12!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 110.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(11),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🍿',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Movies',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor13 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    12,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor13!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 85.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🎨',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Art',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor14 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    13,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor14!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 130.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(13),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🛍️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Shopping',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor15 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    14,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor15!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 140.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(14),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '☕',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Coffee runs',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor16 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    15,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor16!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 150.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(15),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '♟️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Board games',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.outputColor17 =
-                                      await actions.changeContainerColorAtIndex(
-                                    FFAppState().hobbyColors.toList(),
-                                    16,
-                                  );
-                                  FFAppState().hobbyColors = _model
-                                      .outputColor17!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 130.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .hobbyColors
-                                        .elementAtOrNull(16),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🌱',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Gardening',
+                                          'Console',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1732,13 +1346,24 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                               color: Color(0xFFCFC9C4),
                             ),
                           ),
-                          Text(
-                            'SELECT YOUR MUSIC TASTE',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.oswald(
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'SHARING POLICY',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 32.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -1746,15 +1371,35 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'ITEMS YOU ARE WILLING TO SHARE',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFFCFC9C4),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -1766,13 +1411,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor1 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor1 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     0,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor1!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor1!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -1780,11 +1425,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 90.0,
+                                  width: 80.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(0),
                                     boxShadow: [
                                       BoxShadow(
@@ -1813,13 +1458,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎸',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Rock',
+                                          'None',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1852,13 +1491,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor2 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor2 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     1,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor2!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor2!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -1866,11 +1505,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 90.0,
+                                  width: 110.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(1),
                                     boxShadow: [
                                       BoxShadow(
@@ -1899,13 +1538,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎶',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Pop',
+                                          'Mini Fridge',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1938,13 +1571,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor3 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor3 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     2,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor3!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor3!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -1952,11 +1585,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 120.0,
+                                  width: 60.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(2),
                                     boxShadow: [
                                       BoxShadow(
@@ -1985,13 +1618,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎧',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Hip-Hop',
+                                          'Fan',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2024,13 +1651,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor4 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor4 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     3,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor4!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor4!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -2038,11 +1665,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 85.0,
+                                  width: 100.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(3),
                                     boxShadow: [
                                       BoxShadow(
@@ -2071,13 +1698,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎤',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Rap',
+                                          'Microwave',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2116,13 +1737,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor5 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor5 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     4,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor5!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor5!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -2130,11 +1751,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 120.0,
+                                  width: 90.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(4),
                                     boxShadow: [
                                       BoxShadow(
@@ -2163,13 +1784,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🤠',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Country',
+                                          'Toaster',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2202,13 +1817,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor6 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor6 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     5,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor6!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor6!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -2216,11 +1831,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 95.0,
+                                  width: 60.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(5),
                                     boxShadow: [
                                       BoxShadow(
@@ -2249,13 +1864,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🥁',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Jazz',
+                                          'TV',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2288,13 +1897,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor7 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor7 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     6,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor7!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor7!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -2302,11 +1911,11 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: 90.0,
+                                  width: 120.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(6),
                                     boxShadow: [
                                       BoxShadow(
@@ -2335,13 +1944,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🌊',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Lofi',
+                                          'Kitchen Tools',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2374,13 +1977,13 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.musicOutputColor8 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
+                                  _model.sharingOutputColor8 = await actions
+                                      .changeSharingContainerColorAtIndex(
+                                    FFAppState().sharingColors.toList(),
                                     7,
                                   );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor8!
+                                  FFAppState().sharingColors = _model
+                                      .sharingOutputColor8!
                                       .toList()
                                       .cast<Color>();
                                   safeSetState(() {});
@@ -2392,7 +1995,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                   height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FFAppState()
-                                        .musicColors
+                                        .sharingColors
                                         .elementAtOrNull(7),
                                     boxShadow: [
                                       BoxShadow(
@@ -2421,277 +2024,7 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          '🎹',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'R&B',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.musicOutputColor9 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
-                                    8,
-                                  );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor9!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 95.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .musicColors
-                                        .elementAtOrNull(8),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🎛️',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'EDM',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.musicOutputColor10 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
-                                    9,
-                                  );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor10!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 95.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .musicColors
-                                        .elementAtOrNull(9),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🕺',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Latin',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.black,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.musicOutputColor11 = await actions
-                                      .changeMusicContainerColorAtIndex(
-                                    FFAppState().musicColors.toList(),
-                                    10,
-                                  );
-                                  FFAppState().musicColors = _model
-                                      .musicOutputColor11!
-                                      .toList()
-                                      .cast<Color>();
-                                  safeSetState(() {});
-
-                                  safeSetState(() {});
-                                },
-                                child: Container(
-                                  width: 120.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FFAppState()
-                                        .musicColors
-                                        .elementAtOrNull(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: Offset(
-                                          0.0,
-                                          2.0,
-                                        ),
-                                        spreadRadius: 1.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '🎻',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Classical',
+                                          'Console',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -2752,9 +2085,1461 @@ class _InterestsWidgetState extends State<InterestsWidget> {
                               ),
                             ].divide(SizedBox(width: 12.0)),
                           ),
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width * 0.33,
+                            child: Divider(
+                              thickness: 3.0,
+                              color: Color(0xFFCFC9C4),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'PREFERRED HOUSING TYPE',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 32.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor1 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    0,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor1!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 80.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Single',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.gudea(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor2 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    1,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor2!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 80.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(1),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Double',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor3 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    2,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor3!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 80.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(2),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Triple',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor4 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    3,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor4!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 70.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(3),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Quad',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor5 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    4,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor5!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 110.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(4),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Townhouse',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor6 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    5,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor6!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 110.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(5),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Apartment',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.housingOutputColor7 = await actions
+                                      .changeHousingContainerColorAtIndex(
+                                    FFAppState().housingColors.toList(),
+                                    6,
+                                  );
+                                  FFAppState().housingColors = _model
+                                      .housingOutputColor7!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 130.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FFAppState()
+                                        .housingColors
+                                        .elementAtOrNull(6),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                        spreadRadius: 1.0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Just Browsing',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width * 0.33,
+                            child: Divider(
+                              thickness: 3.0,
+                              color: Color(0xFFCFC9C4),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'PREFERRED RESIDENCE HALL',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.oswald(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 32.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor1 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    0,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor1!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/ryan_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(0),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Ryan Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor2 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    1,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor2!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/hennepin_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(1),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Hennepin Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor3 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    2,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor3!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/padua_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(2),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Padua Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor4 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    3,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor4!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/plassman_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(3),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Plassman Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor5 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    4,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor5!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/hines_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(4),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Hines Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor6 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    5,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor6!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/snyder_hall.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(5),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Snyder Hall',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor7 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    6,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor7!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/macclosky_square.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(6),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'MacClosky Townhouses',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.hallOutputColor8 = await actions
+                                      .changeHallContainerColorAtIndex(
+                                    FFAppState().hallColors.toList(),
+                                    7,
+                                  );
+                                  FFAppState().hallColors = _model
+                                      .hallOutputColor8!
+                                      .toList()
+                                      .cast<Color>();
+                                  safeSetState(() {});
+
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: 140.0,
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.5),
+                                          topRight: Radius.circular(12.5),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/cushing_village.jpg',
+                                          width: 140.0,
+                                          height: 140.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 200.0,
+                                        decoration: BoxDecoration(
+                                          color: FFAppState()
+                                              .hallColors
+                                              .elementAtOrNull(7),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.5),
+                                            bottomRight: Radius.circular(12.5),
+                                            topLeft: Radius.circular(0.0),
+                                            topRight: Radius.circular(0.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Cushing Village',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.oswald(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
                           FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed(WhoAreYouWidget.routeName);
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: 'CONTINUE',
                             options: FFButtonOptions(

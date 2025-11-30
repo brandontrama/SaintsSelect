@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'who_are_you_widget.dart' show WhoAreYouWidget;
+import 'start_point_widget.dart' show StartPointWidget;
 import 'package:flutter/material.dart';
 
-class WhoAreYouModel extends FlutterFlowModel<WhoAreYouWidget> {
+class StartPointModel extends FlutterFlowModel<StartPointWidget> {
   @override
   void initState(BuildContext context) {}
 

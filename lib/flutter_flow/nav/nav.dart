@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => InterestsWidget(),
+      errorBuilder: (context, state) => EssentialsWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => InterestsWidget(),
+          builder: (context, _) => EssentialsWidget(),
         ),
         FFRoute(
           name: ProfilePageWidget.routeName,
@@ -51,19 +51,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ChatPageWidget(),
         ),
         FFRoute(
-          name: WhoAreYouWidget.routeName,
-          path: WhoAreYouWidget.routePath,
-          builder: (context, params) => WhoAreYouWidget(),
-        ),
-        FFRoute(
           name: InterestsWidget.routeName,
           path: InterestsWidget.routePath,
           builder: (context, params) => InterestsWidget(),
-        ),
-        FFRoute(
-          name: ProfileSetupWidget.routeName,
-          path: ProfileSetupWidget.routePath,
-          builder: (context, params) => ProfileSetupWidget(),
         ),
         FFRoute(
           name: StartPointWidget.routeName,
@@ -74,6 +64,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SetUpProfileWidget.routeName,
           path: SetUpProfileWidget.routePath,
           builder: (context, params) => SetUpProfileWidget(),
+        ),
+        FFRoute(
+          name: EssentialsWidget.routeName,
+          path: EssentialsWidget.routePath,
+          builder: (context, params) => EssentialsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:csv/csv.dart';
-import 'package:synchronized/synchronized.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -17,28 +13,12 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {
-    secureStorage = FlutterSecureStorage();
-    await _safeInitAsync(() async {
-      _hobbyColors = (await secureStorage.getStringList('ff_hobbyColors'))
-              ?.map((x) => Color(int.tryParse(x) ?? 0))
-              .toList() ??
-          _hobbyColors;
-    });
-    await _safeInitAsync(() async {
-      _musicColors = (await secureStorage.getStringList('ff_musicColors'))
-              ?.map((x) => Color(int.tryParse(x) ?? 0))
-              .toList() ??
-          _musicColors;
-    });
-  }
+  Future initializePersistedState() async {}
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
-
-  late FlutterSecureStorage secureStorage;
 
   List<Color> _hobbyColors = [
     Color(4294967295),
@@ -62,30 +42,18 @@ class FFAppState extends ChangeNotifier {
   List<Color> get hobbyColors => _hobbyColors;
   set hobbyColors(List<Color> value) {
     _hobbyColors = value;
-    secureStorage.setStringList(
-        'ff_hobbyColors', value.map((x) => x.value.toString()).toList());
-  }
-
-  void deleteHobbyColors() {
-    secureStorage.delete(key: 'ff_hobbyColors');
   }
 
   void addToHobbyColors(Color value) {
     hobbyColors.add(value);
-    secureStorage.setStringList(
-        'ff_hobbyColors', _hobbyColors.map((x) => x.value.toString()).toList());
   }
 
   void removeFromHobbyColors(Color value) {
     hobbyColors.remove(value);
-    secureStorage.setStringList(
-        'ff_hobbyColors', _hobbyColors.map((x) => x.value.toString()).toList());
   }
 
   void removeAtIndexFromHobbyColors(int index) {
     hobbyColors.removeAt(index);
-    secureStorage.setStringList(
-        'ff_hobbyColors', _hobbyColors.map((x) => x.value.toString()).toList());
   }
 
   void updateHobbyColorsAtIndex(
@@ -93,14 +61,10 @@ class FFAppState extends ChangeNotifier {
     Color Function(Color) updateFn,
   ) {
     hobbyColors[index] = updateFn(_hobbyColors[index]);
-    secureStorage.setStringList(
-        'ff_hobbyColors', _hobbyColors.map((x) => x.value.toString()).toList());
   }
 
   void insertAtIndexInHobbyColors(int index, Color value) {
     hobbyColors.insert(index, value);
-    secureStorage.setStringList(
-        'ff_hobbyColors', _hobbyColors.map((x) => x.value.toString()).toList());
   }
 
   List<Color> _musicColors = [
@@ -119,30 +83,18 @@ class FFAppState extends ChangeNotifier {
   List<Color> get musicColors => _musicColors;
   set musicColors(List<Color> value) {
     _musicColors = value;
-    secureStorage.setStringList(
-        'ff_musicColors', value.map((x) => x.value.toString()).toList());
-  }
-
-  void deleteMusicColors() {
-    secureStorage.delete(key: 'ff_musicColors');
   }
 
   void addToMusicColors(Color value) {
     musicColors.add(value);
-    secureStorage.setStringList(
-        'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
 
   void removeFromMusicColors(Color value) {
     musicColors.remove(value);
-    secureStorage.setStringList(
-        'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
 
   void removeAtIndexFromMusicColors(int index) {
     musicColors.removeAt(index);
-    secureStorage.setStringList(
-        'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
 
   void updateMusicColorsAtIndex(
@@ -150,14 +102,10 @@ class FFAppState extends ChangeNotifier {
     Color Function(Color) updateFn,
   ) {
     musicColors[index] = updateFn(_musicColors[index]);
-    secureStorage.setStringList(
-        'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
 
   void insertAtIndexInMusicColors(int index, Color value) {
     musicColors.insert(index, value);
-    secureStorage.setStringList(
-        'ff_musicColors', _musicColors.map((x) => x.value.toString()).toList());
   }
 
   List<String> _currentPhrase = [
@@ -197,18 +145,191 @@ class FFAppState extends ChangeNotifier {
   set currentPhraseIndex(int value) {
     _currentPhraseIndex = value;
   }
-}
 
-void _safeInit(Function() initializeField) {
-  try {
-    initializeField();
-  } catch (_) {}
-}
+  List<String> _allergyChoice = ['YES', 'NO'];
+  List<String> get allergyChoice => _allergyChoice;
+  set allergyChoice(List<String> value) {
+    _allergyChoice = value;
+  }
 
-Future _safeInitAsync(Function() initializeField) async {
-  try {
-    await initializeField();
-  } catch (_) {}
+  void addToAllergyChoice(String value) {
+    allergyChoice.add(value);
+  }
+
+  void removeFromAllergyChoice(String value) {
+    allergyChoice.remove(value);
+  }
+
+  void removeAtIndexFromAllergyChoice(int index) {
+    allergyChoice.removeAt(index);
+  }
+
+  void updateAllergyChoiceAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    allergyChoice[index] = updateFn(_allergyChoice[index]);
+  }
+
+  void insertAtIndexInAllergyChoice(int index, String value) {
+    allergyChoice.insert(index, value);
+  }
+
+  int _onTapCount = 0;
+  int get onTapCount => _onTapCount;
+  set onTapCount(int value) {
+    _onTapCount = value;
+  }
+
+  List<Color> _itemsColors = [
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295)
+  ];
+  List<Color> get itemsColors => _itemsColors;
+  set itemsColors(List<Color> value) {
+    _itemsColors = value;
+  }
+
+  void addToItemsColors(Color value) {
+    itemsColors.add(value);
+  }
+
+  void removeFromItemsColors(Color value) {
+    itemsColors.remove(value);
+  }
+
+  void removeAtIndexFromItemsColors(int index) {
+    itemsColors.removeAt(index);
+  }
+
+  void updateItemsColorsAtIndex(
+    int index,
+    Color Function(Color) updateFn,
+  ) {
+    itemsColors[index] = updateFn(_itemsColors[index]);
+  }
+
+  void insertAtIndexInItemsColors(int index, Color value) {
+    itemsColors.insert(index, value);
+  }
+
+  List<Color> _sharingColors = [
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295)
+  ];
+  List<Color> get sharingColors => _sharingColors;
+  set sharingColors(List<Color> value) {
+    _sharingColors = value;
+  }
+
+  void addToSharingColors(Color value) {
+    sharingColors.add(value);
+  }
+
+  void removeFromSharingColors(Color value) {
+    sharingColors.remove(value);
+  }
+
+  void removeAtIndexFromSharingColors(int index) {
+    sharingColors.removeAt(index);
+  }
+
+  void updateSharingColorsAtIndex(
+    int index,
+    Color Function(Color) updateFn,
+  ) {
+    sharingColors[index] = updateFn(_sharingColors[index]);
+  }
+
+  void insertAtIndexInSharingColors(int index, Color value) {
+    sharingColors.insert(index, value);
+  }
+
+  List<Color> _housingColors = [
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295)
+  ];
+  List<Color> get housingColors => _housingColors;
+  set housingColors(List<Color> value) {
+    _housingColors = value;
+  }
+
+  void addToHousingColors(Color value) {
+    housingColors.add(value);
+  }
+
+  void removeFromHousingColors(Color value) {
+    housingColors.remove(value);
+  }
+
+  void removeAtIndexFromHousingColors(int index) {
+    housingColors.removeAt(index);
+  }
+
+  void updateHousingColorsAtIndex(
+    int index,
+    Color Function(Color) updateFn,
+  ) {
+    housingColors[index] = updateFn(_housingColors[index]);
+  }
+
+  void insertAtIndexInHousingColors(int index, Color value) {
+    housingColors.insert(index, value);
+  }
+
+  List<Color> _hallColors = [
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295),
+    Color(4294967295)
+  ];
+  List<Color> get hallColors => _hallColors;
+  set hallColors(List<Color> value) {
+    _hallColors = value;
+  }
+
+  void addToHallColors(Color value) {
+    hallColors.add(value);
+  }
+
+  void removeFromHallColors(Color value) {
+    hallColors.remove(value);
+  }
+
+  void removeAtIndexFromHallColors(int index) {
+    hallColors.removeAt(index);
+  }
+
+  void updateHallColorsAtIndex(
+    int index,
+    Color Function(Color) updateFn,
+  ) {
+    hallColors[index] = updateFn(_hallColors[index]);
+  }
+
+  void insertAtIndexInHallColors(int index, Color value) {
+    hallColors.insert(index, value);
+  }
 }
 
 Color? _colorFromIntValue(int? val) {
@@ -216,47 +337,4 @@ Color? _colorFromIntValue(int? val) {
     return null;
   }
   return Color(val);
-}
-
-extension FlutterSecureStorageExtensions on FlutterSecureStorage {
-  static final _lock = Lock();
-
-  Future<void> writeSync({required String key, String? value}) async =>
-      await _lock.synchronized(() async {
-        await write(key: key, value: value);
-      });
-
-  void remove(String key) => delete(key: key);
-
-  Future<String?> getString(String key) async => await read(key: key);
-  Future<void> setString(String key, String value) async =>
-      await writeSync(key: key, value: value);
-
-  Future<bool?> getBool(String key) async => (await read(key: key)) == 'true';
-  Future<void> setBool(String key, bool value) async =>
-      await writeSync(key: key, value: value.toString());
-
-  Future<int?> getInt(String key) async =>
-      int.tryParse(await read(key: key) ?? '');
-  Future<void> setInt(String key, int value) async =>
-      await writeSync(key: key, value: value.toString());
-
-  Future<double?> getDouble(String key) async =>
-      double.tryParse(await read(key: key) ?? '');
-  Future<void> setDouble(String key, double value) async =>
-      await writeSync(key: key, value: value.toString());
-
-  Future<List<String>?> getStringList(String key) async =>
-      await read(key: key).then((result) {
-        if (result == null || result.isEmpty) {
-          return null;
-        }
-        return CsvToListConverter()
-            .convert(result)
-            .first
-            .map((e) => e.toString())
-            .toList();
-      });
-  Future<void> setStringList(String key, List<String> value) async =>
-      await writeSync(key: key, value: ListToCsvConverter().convert([value]));
 }

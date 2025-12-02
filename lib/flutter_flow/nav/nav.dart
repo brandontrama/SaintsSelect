@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => EssentialsWidget(),
+      errorBuilder: (context, state) => StartPointWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => EssentialsWidget(),
+          builder: (context, _) => StartPointWidget(),
         ),
         FFRoute(
           name: ProfilePageWidget.routeName,
@@ -69,6 +69,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EssentialsWidget.routeName,
           path: EssentialsWidget.routePath,
           builder: (context, params) => EssentialsWidget(),
+        ),
+        FFRoute(
+          name: AdditionalWidget.routeName,
+          path: AdditionalWidget.routePath,
+          builder: (context, params) => AdditionalWidget(),
+        ),
+        FFRoute(
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
+          name: WhoAreYouWidget.routeName,
+          path: WhoAreYouWidget.routePath,
+          builder: (context, params) => WhoAreYouWidget(),
+        ),
+        FFRoute(
+          name: LifestyleWidget.routeName,
+          path: LifestyleWidget.routePath,
+          builder: (context, params) => LifestyleWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

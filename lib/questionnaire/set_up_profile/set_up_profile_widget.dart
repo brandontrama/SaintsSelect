@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'set_up_profile_model.dart';
 export 'set_up_profile_model.dart';
 
-/// Welcome Screen With CTA
+/// Profile Setup Splash Screen
 class SetUpProfileWidget extends StatefulWidget {
   const SetUpProfileWidget({super.key});
 
@@ -117,42 +117,6 @@ class _SetUpProfileWidgetState extends State<SetUpProfileWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        valueOrDefault<String>(
-                          FFAppState()
-                              .currentPhrase
-                              .elementAtOrNull(FFAppState().currentPhraseIndex),
-                          'ONE MOMENT WHILE YOUR PROFILE IS BEING CREATED...',
-                        ),
-                        textAlign: TextAlign.center,
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  font: GoogleFonts.oswald(
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .displayLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xFF006B54),
-                                  fontSize: 64.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .displayLarge
-                                      .fontStyle,
-                                  lineHeight: 1.0,
-                                ),
-                      ).animateOnActionTrigger(
-                          animationsMap['textOnActionTriggerAnimation']!,
-                          hasBeenTriggered: hasTextTriggered),
-                      Lottie.network(
-                        'https://lottie.host/994c93bd-db99-48d0-9967-fd9ea60f2813/5KVoSkd6iW.json',
-                        width: 100.0,
-                        height: 100.0,
-                        fit: BoxFit.contain,
-                        frameRate: FrameRate(60.0),
-                        animate: true,
-                      ),
                       Opacity(
                         opacity: 0.0,
                         child: FlutterFlowTimer(
@@ -213,6 +177,42 @@ class _SetUpProfileWidgetState extends State<SetUpProfileWidget>
                                     .fontStyle,
                               ),
                         ),
+                      ),
+                      Text(
+                        valueOrDefault<String>(
+                          FFAppState()
+                              .currentPhrase
+                              .elementAtOrNull(FFAppState().currentPhraseIndex),
+                          'ONE MOMENT WHILE YOUR PROFILE IS BEING CREATED...',
+                        ),
+                        textAlign: TextAlign.center,
+                        style:
+                            FlutterFlowTheme.of(context).displayLarge.override(
+                                  font: GoogleFonts.oswald(
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .displayLarge
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFF006B54),
+                                  fontSize: 64.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .displayLarge
+                                      .fontStyle,
+                                  lineHeight: 1.0,
+                                ),
+                      ).animateOnActionTrigger(
+                          animationsMap['textOnActionTriggerAnimation']!,
+                          hasBeenTriggered: hasTextTriggered),
+                      Lottie.network(
+                        'https://lottie.host/994c93bd-db99-48d0-9967-fd9ea60f2813/5KVoSkd6iW.json',
+                        width: 100.0,
+                        height: 100.0,
+                        fit: BoxFit.contain,
+                        frameRate: FrameRate(60.0),
+                        animate: true,
                       ),
                     ].divide(SizedBox(height: 40.0)),
                   ),

@@ -330,6 +330,35 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInHallColors(int index, Color value) {
     hallColors.insert(index, value);
   }
+
+  List<String> _AthleteOptions = ['Athlete', 'Non-Athlete'];
+  List<String> get AthleteOptions => _AthleteOptions;
+  set AthleteOptions(List<String> value) {
+    _AthleteOptions = value;
+  }
+
+  void addToAthleteOptions(String value) {
+    AthleteOptions.add(value);
+  }
+
+  void removeFromAthleteOptions(String value) {
+    AthleteOptions.remove(value);
+  }
+
+  void removeAtIndexFromAthleteOptions(int index) {
+    AthleteOptions.removeAt(index);
+  }
+
+  void updateAthleteOptionsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    AthleteOptions[index] = updateFn(_AthleteOptions[index]);
+  }
+
+  void insertAtIndexInAthleteOptions(int index, String value) {
+    AthleteOptions.insert(index, value);
+  }
 }
 
 Color? _colorFromIntValue(int? val) {
